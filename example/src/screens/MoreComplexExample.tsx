@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Button } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import { Canvas, CanvasRef } from '@benjeau/react-native-draw';
 
 export default () => {
@@ -15,16 +15,32 @@ export default () => {
 
   return (
     <>
-      <Canvas
+      <Canvas 
         ref={canvasRef}
-        height={600}
         color="red"
         thickness={20}
         opacity={0.6}
-        style={{ backgroundColor: 'black' }}
+        style={styles.canvasSide}
       />
-      <Button title="Undo" onPress={handleUndo} />
-      <Button title="Clear" onPress={handleClear} />
+      <View style={styles.ControlSide}>
+        <Button title="Undo" onPress={handleUndo} />
+        <Button title="Clear" onPress={handleClear} />
+      </View>
     </>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 5,
+  },
+  canvasSide: {
+    flex: 4,
+    backgroundColor: 'yellow'
+  },
+  ControlSide: {
+    flex: 1,
+    flexDirection: "row",
+  },
+})

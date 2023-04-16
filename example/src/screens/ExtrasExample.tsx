@@ -14,7 +14,7 @@ export default () => {
   const canvasRef = useRef<CanvasRef>(null);
 
   const [color, setColor] = useState(DEFAULT_COLORS[0][0][0]);
-  const [thickness, setThickness] = useState(5);
+  const [thickness, setThickness] = useState(10);
   const [opacity, setOpacity] = useState(1);
   const [tool, setTool] = useState(DrawingTool.Brush);
   const [visibleBrushProperties, setVisibleBrushProperties] = useState(false);
@@ -45,7 +45,7 @@ export default () => {
       }).start();
     } else {
       Animated.timing(overlayOpacity, {
-        toValue: 0,
+        toValue: 1,
         duration: 200,
         useNativeDriver: true,
       }).start(() => {
@@ -66,6 +66,7 @@ export default () => {
         style={{
           borderBottomWidth: StyleSheet.hairlineWidth,
           borderColor: theme.colors.border,
+          flex: 1,
         }}
       />
       <View>

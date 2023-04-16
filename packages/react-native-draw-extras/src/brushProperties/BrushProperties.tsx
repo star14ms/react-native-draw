@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useMemo } from 'react';
-import { Animated, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { Animated, StyleProp, StyleSheet, View, Text, ViewStyle } from 'react-native';
 import Slider from '@react-native-community/slider';
 
 import {
@@ -141,7 +141,7 @@ const BrushProperties = forwardRef<BrushPropertiesRef, BrushPropertiesProps>(
             )}
             {opacity && onOpacityChange && (
               <Slider
-                minimumValue={0}
+                minimumValue={0.01}
                 maximumValue={1}
                 step={opacityStep}
                 value={opacity}
@@ -160,6 +160,7 @@ const BrushProperties = forwardRef<BrushPropertiesRef, BrushPropertiesProps>(
 const styles = StyleSheet.create({
   sliderContainer: {
     marginVertical: 10,
+    marginLeft: 50,
   },
 });
 
